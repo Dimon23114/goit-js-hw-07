@@ -7,7 +7,6 @@ console.log(createGalleryCards(galleryItems));
 
 galleryEl.insertAdjacentHTML("beforeend", cardsMarkup);
 
-
 function createGalleryCards(galleryItems) { 
 
     return galleryItems.map(({ preview, original, description }) => {
@@ -19,6 +18,7 @@ function createGalleryCards(galleryItems) {
     src="${preview}"
     data-source="${original}"
     alt="${description}"
+    
     />
     </a>
 </div> 
@@ -35,11 +35,10 @@ function onClickGalleryFoto(event) {
     if (!event.target.classList.contains('gallery__image')) { 
         return;
     }
-
-
     const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
 `);
     
     instance.show();
+
 };
